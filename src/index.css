@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.bg-modal {
+        background: rgba(0, 0, 0, .5);
+}
