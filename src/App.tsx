@@ -68,6 +68,7 @@ function App() {
                     songList={songList}
                     songToEdit={songToEdit}
                     editMode={editMode}
+                    setEditMode={setEditMode}
                 />
             )}
         </div>

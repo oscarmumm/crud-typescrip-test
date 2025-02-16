@@ -7,9 +7,9 @@ type FormModalProps = {
     songList: Song[];
     setSongList: React.Dispatch<React.SetStateAction<Song[]>>;
     songToEdit: Song;
+    setEditMode: React.Dispatch<React.SetStateAction<boolean>>;
     editMode: boolean;
 };
-
 const initialNewEntryState = { id: 0, nombre: '', artista: '', año: '' };
 
 export default function FormModal({
@@ -18,6 +18,7 @@ export default function FormModal({
     setSongList,
     songToEdit,
     editMode,
+    setEditMode,
 }: FormModalProps) {
     const [newEntry, setNewEntry] = useState(
         editMode ? songToEdit : initialNewEntryState
@@ -54,6 +55,7 @@ export default function FormModal({
                 return song;
             })
         );
+        setEditMode(false);
         setNewEntry(initialNewEntryState);
         setModalActive(false);
     };
@@ -68,6 +70,8 @@ export default function FormModal({
                     className='absolute top-2 right-2 cursor-pointer p-2 hover:bg-slate-200 rounded-lg'
                     onClick={(e) => {
                         e.preventDefault();
+                        setEditMode(false);
+                        setNewEntry(initialNewEntryState);
                         setModalActive(false);
                     }}
                 >
